@@ -1,0 +1,19 @@
+#!/bin/sh
+
+if [[ -z "${ANDROID_HOME}" ]]; then
+  echo "ANDROID_HOME isn't defined. Please set Android SDK path to environement variable." >&2
+fi
+
+SDK_CMD="${ANDROID_HOME}/tools/bin/sdkmanager"
+AVD_CMD="${ANDROID_HOME}/tools/bin/avdmanager"
+
+SYSTEM_IMAGE="system-images;android-28;google_apis_playstore;x86"
+DEVICE_NAME="internship-test"
+
+# Install system image
+eval "$SDK_CMD '$SYSTEM_IMAGE'"
+
+# Create emulator
+eval "echo no | $AVD_CMD create avd -n $DEVICE_NAME -k '$SYSTEM_IMAGE' -f"
+cp ./script/config.ini $HOME/.android/avd/$DEVICE_NAME.avd/config.ini
+

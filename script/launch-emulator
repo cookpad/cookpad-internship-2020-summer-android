@@ -1,0 +1,11 @@
+#!/bin/sh
+
+if [[ -z "${ANDROID_HOME}" ]]; then
+  echo "ANDROID_HOME isn't defined. Please set Android SDK path to environement variable." >&2
+fi
+
+EMULATOR_CMD="${ANDROID_HOME}/emulator/emulator"
+DEVICE_NAME="internship-test"
+
+eval "$EMULATOR_CMD -avd $DEVICE_NAME -no-audio -no-snapshot -read-only > /dev/null 2>&1 &"
+
