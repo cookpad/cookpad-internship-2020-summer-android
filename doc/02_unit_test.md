@@ -145,8 +145,8 @@ Truth による値のアサーションは `assertThat(評価する値).isEqualT
 +            )
 +        )
 		whenever(recipeDataSource.fetchAll(any(), any())).then {
--            (it.arguments[0] as  (List<Recipe>) -> Unit).invoke(listOf())
-+            (it.arguments[0] as  (List<Recipe>) -> Unit).invoke(recipeList)
+-            (it.arguments[0] as  (List<RecipeEntity>) -> Unit).invoke(listOf())
++            (it.arguments[0] as  (List<RecipeEntity>) -> Unit).invoke(recipeList)
         }
 
         // then

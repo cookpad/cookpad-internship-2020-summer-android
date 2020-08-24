@@ -248,19 +248,19 @@ class RecipeListAdapter(
     private val onRecipeClickListener: OnRecipeClickListener
 ) : RecyclerView.Adapter<RecipeListAdapter.RecipeViewHolder>() {
 
--    private var recipeList: List<Recipe> = mutableListOf()
+-    private var recipeList: List<RecipeEntity> = mutableListOf()
 +    private var recipeList: List<RecipeListContract.Recipe> = mutableListOf()
 
 
--	fun update(recipeList: List<Recipe>) {
+-	fun update(recipeList: List<RecipeEntity>) {
 +   fun update(recipeList: List<RecipeListContract.Recipe>) {
 
 -        binding.steps.text = recipe.steps.joinToString("、")
 +        binding.steps.text = recipe.steps
 
 	class RecipeDiffCallback(
--        private val oldList: List<Recipe>,
--        private val newList: List<Recipe>
+-        private val oldList: List<RecipeEntity>,
+-        private val newList: List<RecipeEntity>
 +        private val oldList: List<RecipeListContract.Recipe>,
 +        private val newList: List<RecipeListContract.Recipe>
     ) : DiffUtil.Callback() {
