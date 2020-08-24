@@ -2,6 +2,8 @@
 
 クックパッド2020年夏インターン Android コース講義アプリ
 
+[講義資料](https://speakerdeck.com/ksfee684/cookpad-summer-internship-2020-android)
+
 ## Setup
 
 このプロジェクトを自身の GitHub アカウントに fork して利用してください。
